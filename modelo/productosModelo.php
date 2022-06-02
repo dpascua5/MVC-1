@@ -12,6 +12,11 @@ class productosModelo
     }
     public function getProductos()
     {
-
+        $consulta=$this->db->query("SELECT * FROM PRODUCTOS");
+        while($filas=$consulta->fetch(PDO::FETCH_ASSOC))
+        {
+            $this->productos[]=$filas;
+        }
+        return $this->productos;
     }
 }
